@@ -78,9 +78,13 @@ function convertCurrency(moneySystem) {
 function getRandomPassword(lengthPassword) {
 	let password;
 	if (lengthPassword === undefined) {
-		password = +parseInt(Math.random() * (10 ** 8));
+		do {
+			password = +parseInt(Math.random() * (10 ** 8));
+		} while (password > 10 ** 8);
 	} else {
-		password = +parseInt(Math.random() * (10 ** lengthPassword));
+		do {
+			password = +parseInt(Math.random() * (10 ** lengthPassword));
+		} while (password > 10 ** lengthPassword);
 	}
 
 	return password;
@@ -97,4 +101,4 @@ console.log(`Функція №4: ${theSalaryWithoutTax(1000)}`);
 console.log(`Функція №5: ${getRandomNumber(1, 10)}`);
 console.log(`Функція №6: ${countLetter('а', 'Асталавіста')}`);
 console.log(`Функція №7: ${convertCurrency('91UAH')}`);
-console.log(`Функція №8: ${getRandomPassword(6)}`);
+console.log(`Функція №8: ${getRandomPassword(4)}`);
