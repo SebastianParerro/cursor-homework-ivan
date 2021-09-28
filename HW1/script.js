@@ -1,7 +1,7 @@
 //Створіть 3 змінних з наступими значеннями: 15.678, 123.965, 90.2345. Ці змінні зберігають ціни на товари. Придумайте їм назви (товар можна придумати будь-який)
-let clockPrice = 15.678;
-let phonePrice = 123.965;
-let kettlePrice = 90.2345;
+const clockPrice = 15.678;
+const phonePrice = 123.965;
+const kettlePrice = 90.2345;
 
 //Використовуючи вбудований об'єкт Math – виведіть максимальне число
 console.log(`Максимальна ціна: ${Math.max(clockPrice, phonePrice, kettlePrice)}`);
@@ -14,9 +14,9 @@ let totalСost = clockPrice + phonePrice + kettlePrice;
 console.log(`Вартість всіх товарів: ${totalСost}`);
 
 //Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
-clockPriceRoundDown = Math.floor(clockPrice);
-phonePriceRoundDown = Math.floor(phonePrice);
-kettlePriceRoundDown = Math.floor(kettlePrice);
+let clockPriceRoundDown = Math.floor(clockPrice);
+let phonePriceRoundDown = Math.floor(phonePrice);
+let kettlePriceRoundDown = Math.floor(kettlePrice);
 let totalСostRoundDown = clockPriceRoundDown + phonePriceRoundDown + kettlePriceRoundDown;
 
 //Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
@@ -26,7 +26,8 @@ console.log(`Cума товарів округлена до сотень: ${Math
 console.log(`Число парне?: ${totalСostRoundDown % 2 == 0}`);
 
 //Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
-console.log(`Сума решти (без округлення): ${500 - totalСost}`);
+let totalOfMoney = 500;
+console.log(`Сума решти (без округлення): ${totalOfMoney - totalСost}`);
 
 //Виведіть середнє значення цін, округлене до другого знаку після коми
 console.log(`Cереднє значення цін: ${(totalСost / 3).toFixed(2)}`);
