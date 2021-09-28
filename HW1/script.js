@@ -10,14 +10,14 @@ console.log(`Максимальна ціна: ${Math.max(clockPrice, phonePrice,
 console.log(`Мінімальна ціна: ${Math.min(clockPrice, phonePrice, kettlePrice)}`);
 
 //Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму
-let totalСost = clockPrice + phonePrice + kettlePrice;
+const totalСost = clockPrice + phonePrice + kettlePrice;
 console.log(`Вартість всіх товарів: ${totalСost}`);
 
 //Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
-let clockPriceRoundDown = Math.floor(clockPrice);
-let phonePriceRoundDown = Math.floor(phonePrice);
-let kettlePriceRoundDown = Math.floor(kettlePrice);
-let totalСostRoundDown = clockPriceRoundDown + phonePriceRoundDown + kettlePriceRoundDown;
+const clockPriceRoundDown = Math.floor(clockPrice);
+const phonePriceRoundDown = Math.floor(phonePrice);
+const kettlePriceRoundDown = Math.floor(kettlePrice);
+const totalСostRoundDown = clockPriceRoundDown + phonePriceRoundDown + kettlePriceRoundDown;
 
 //Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
 console.log(`Cума товарів округлена до сотень: ${Math.round(totalСostRoundDown / 100) * 100}`);
@@ -26,7 +26,7 @@ console.log(`Cума товарів округлена до сотень: ${Math
 console.log(`Число парне?: ${totalСostRoundDown % 2 == 0}`);
 
 //Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
-let totalOfMoney = 500;
+const totalOfMoney = 500;
 console.log(`Сума решти (без округлення): ${totalOfMoney - totalСost}`);
 
 //Виведіть середнє значення цін, округлене до другого знаку після коми
@@ -44,7 +44,7 @@ console.log(`Випадкова знижка: ${discount}%`);
 let amountToPay = Math.ceil((totalСost * (100 - discount) / 100) * 100) / 100;
 console.log(`Сума до оплати: ${amountToPay.toFixed(2)}`);
 
-let difference = totalСost - amountToPay;
-let costPrice = totalСost / 2;
+const difference = totalСost - amountToPay;
+const costPrice = totalСost / 2;
 let netProfit = Math.floor((costPrice - difference) * 100) / 100;
 console.log(`Чистий прибуток ${netProfit.toFixed(2)}`);

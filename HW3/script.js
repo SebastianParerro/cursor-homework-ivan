@@ -56,7 +56,7 @@ function countLetter(letter, str) {
 	return sum;
 }
 
-/*7.Функція, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
+/*7. Функція, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
 Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$ */
 function convertCurrency(moneySystem) {
 	let money = parseInt(moneySystem);
@@ -73,6 +73,22 @@ function convertCurrency(moneySystem) {
 	}
 }
 
+/*8. Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
+Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124 */
+function getRandomPassword(lengthPassword) {
+	let password;
+	if (lengthPassword === undefined) {
+		password = +parseInt(Math.random() * (10 ** 8));
+	} else {
+		password = +parseInt(Math.random() * (10 ** lengthPassword));
+	}
+
+	return password;
+}
+
+
+
+
 
 console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2: ${degreeOf(2, 6)}`);
@@ -81,3 +97,4 @@ console.log(`Функція №4: ${theSalaryWithoutTax(1000)}`);
 console.log(`Функція №5: ${getRandomNumber(1, 10)}`);
 console.log(`Функція №6: ${countLetter('а', 'Асталавіста')}`);
 console.log(`Функція №7: ${convertCurrency('91UAH')}`);
+console.log(`Функція №8: ${getRandomPassword(6)}`);
