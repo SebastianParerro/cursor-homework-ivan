@@ -22,8 +22,8 @@ const degreeOf = (x, y) => {
 	return result;
 }
 
-//3. функція, яка форматує ім'я, роблячи першу букву великою
-const bigFirstLetter = (str) => str[0].toUpperCase() + str.slice(1);
+//3. функція, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
+const bigFirstLetter = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
 
 /*4. функція, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
 (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805 */
@@ -119,7 +119,7 @@ const deleteDuplicateLetter = (str) => {
 
 console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2: ${degreeOf(2, 6)}`);
-console.log(`Функція №3: ${bigFirstLetter('влад')}`);
+console.log(`Функція №3: ${bigFirstLetter('вЛАД')}`);
 console.log(`Функція №4: ${theSalaryWithoutTax(1000)}`);
 console.log(`Функція №5: ${getRandomNumber(1, 10)}`);
 console.log(`Функція №6: ${countLetter('а', 'Асталавіста')}`);
