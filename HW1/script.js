@@ -38,13 +38,13 @@ console.log(`Cереднє значення цін: ${(totalСost / 3).toFixed(2
 (Приклад: ціна була 260.66, знижка склала 10%, клієнт заплатив на 26 меньше, собівартість = 260 / 2 -> 130. Чистий прибуток = 130 - 26 -> 104)
 (Приклад 2: ціна була 100, знижка склала 90 %, клієнт заплатив на 90 меньше, собівартість = 100 / 2 -> 50. Чистий прибуток = 50 - 90 -> -40) */
 
-let discount = Math.floor(Math.random() * 101);
+const discount = Math.floor(Math.random() * 101);
 console.log(`Випадкова знижка: ${discount}%`);
 
-let amountToPay = Math.ceil((totalСost * (100 - discount) / 100) * 100) / 100;
+const amountToPay = Math.ceil((totalСost * (100 - discount) / 100) * 100) / 100;
 console.log(`Сума до оплати: ${amountToPay.toFixed(2)}`);
 
 const difference = totalСost - amountToPay;
 const costPrice = totalСost / 2;
-let netProfit = Math.floor((costPrice - difference) * 100) / 100;
+const netProfit = Math.floor((costPrice - difference) * 100) / 100;
 console.log(`Чистий прибуток ${netProfit.toFixed(2)}`);

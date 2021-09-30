@@ -23,15 +23,13 @@ const degreeOf = (x, y) => {
 }
 
 //3. функція, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
-const bigFirstLetter = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
+const formatName = (str) => str[0].toUpperCase() + str.slice(1).toLowerCase();
 
 /*4. функція, яка вираховує суму, що залишається після оплати податку від зарабітньої плати.
 (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805 */
-const theSalaryWithoutTax = (theSalary) => {
+const countSalaryWithoutTax = (theSalary) => {
 	const tax = 18 + 1.5;
-	const sum = theSalary - theSalary * tax / 100;
-
-	return sum;
+	return theSalary - theSalary * tax / 100;
 }
 
 //5. функція, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
@@ -52,18 +50,30 @@ const countLetter = (letter, str) => {
 	return sum;
 }
 
+
+// const countLetter = function(word, letter) {
+// 	let counter = 0;
+// 	for (let i = 0; i < word.length; i++) {
+// 			if (word[i].toLowerCase() === letter.toLowerCase()) {
+// 					counter++;
+// 			}
+// 	}
+// 	return counter;
+// }
+
+
 /*7. Функція, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. 
 Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$ */
 const convertCurrency = (moneySystem) => {
 	let money = parseInt(moneySystem);
 	if (moneySystem.indexOf('$') !== -1) {
-		money = money * 25;
+		money *= 25;
 
 		return `${money.toFixed(2)} грн.`;
 	}
 
 	if (moneySystem.indexOf('UAH') !== -1) {
-		money = money / 25;
+		money /= 25;
 
 		return `${money.toFixed(2)} $`
 	}
@@ -71,35 +81,67 @@ const convertCurrency = (moneySystem) => {
 
 /*8. Функція генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124 */
-const getRandomPassword = (lengthPassword = 8) => {
-	const min = 10 ** (lengthPassword - 1);
-	const max = (10 ** lengthPassword) - 1;
-	const rand = Math.random() * (max - min + 1);
+// const getRandomPassword = (lengthPassword = 8) => {
+// 	const min = 10 ** (lengthPassword - 1);
+// 	const max = (10 ** lengthPassword) - 1;
+// 	const rand = Math.random() * (max - min + 1);
 
-	return Math.round(rand) + min;
+// 	return Math.round(rand) + min;
+// }
+
+const getRandomPassword = (number = 8) => {
+	let result = '';
+	for (let i = 0; i < number; i++) {
+		result += Math.round(Math.random() * 9);
+	}
+	return result;
 }
+
 
 //9. функція, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 const deleteLetters = (letter, str) => str.replaceAll(letter, '');
 
+// const deleteLetters = function(letter, word) {
+// 	let result = '';
+// 	for (let i = 0; i < word.length; i++) {
+// 			if (word[i].toLowerCase() === letter.toLowerCase()) {
+// 					continue;
+// 			}
+// 			result += word[i];
+// 	}
+// 	return result;
+// }
+
 
 /*10. Функція, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос")
 -> false, isPalyndrom("Я несу гусеня") -> true */
-const isPalyndrom = (str) => {
-	const strWithSmallLetters = str.toLowerCase();
-	const alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюяабвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz';
-	let normal = '';
-	let reversed = '';
 
-	for (const char of strWithSmallLetters) {
-		if (alphabet.includes(char)) {
-			normal += char;
-			reversed = char + reversed;
-		}
+// const isPalyndrom = (str) => {
+// 	const strWithSmallLetters = str.toLowerCase();
+// 	const alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюяабвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz';
+// 	let normal = '';
+// 	let reversed = '';
+
+// 	for (const char of strWithSmallLetters) {
+// 		if (alphabet.includes(char)) {
+// 			normal += char;
+// 			reversed = char + reversed;
+// 		}
+// 	}
+
+// 	return normal === reversed;
+// }
+
+const isPalyndrom = (string) => {
+	string = string.toLowerCase().replaceAll(' ', '');
+	const stringReverse = string.split('').reverse().join('');
+	if (string === stringReverse) {
+		return true;
+	} else {
+		return false;
 	}
-
-	return normal === reversed;
 }
+
 
 /*11. функцію, яка видалить з речення букви, які зустрічаються більше 1 разу.
 Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим" */
@@ -116,15 +158,25 @@ const deleteDuplicateLetter = (str) => {
 	return result;
 }
 
+// const deleteDuplicateLetter = function(string) {
+// 	let result = '';
+// 	for (let i = 0; i < string.length; i++) {
+// 			if (string.toLowerCase().replaceAll(string[i], '').length === string.length - 1) {
+// 					result += string[i];
+// 			}
+// 	}
+// 	return result;
+// }
+
 
 console.log(`Функція №1: ${getMaxDigit(1236)}`);
 console.log(`Функція №2: ${degreeOf(2, 6)}`);
-console.log(`Функція №3: ${bigFirstLetter('вЛАД')}`);
-console.log(`Функція №4: ${theSalaryWithoutTax(1000)}`);
+console.log(`Функція №3: ${formatName('вЛАД')}`);
+console.log(`Функція №4: ${countSalaryWithoutTax(1000)}`);
 console.log(`Функція №5: ${getRandomNumber(1, 10)}`);
 console.log(`Функція №6: ${countLetter('а', 'Асталавіста')}`);
 console.log(`Функція №7: ${convertCurrency('91UAH')}`);
-console.log(`Функція №8: ${getRandomPassword(6)}`);
+console.log(`Функція №8: ${getRandomPassword(10)}`);
 console.log(`Функція №9: ${deleteLetters('a', 'blablabla')}`);
 console.log(`Функція №10: ${isPalyndrom('Я несу гусеня')}`);
 console.log(`Функція №11: ${deleteDuplicateLetter('Бісквіт був дуже ніжним')}`);
