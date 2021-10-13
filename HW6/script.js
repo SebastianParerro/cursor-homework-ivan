@@ -5,7 +5,7 @@ length - довжина масиву, min – мінімальне значен�
 Приклад: getRandomArray(15, 1, 100) –> [6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2] */
 
 const getRandomArray = (length, min, max) => {
-	let randomArray = [];
+	const randomArray = [];
 
 	for (let i = 0; i < length; i++) {
 		randomArray.push(Math.round(Math.random() * (max - min) + min));
@@ -19,9 +19,34 @@ console.log('Функція 1:', getRandomArray(15, 1, 100));
 
 /*2. Створіть функцію getModa(...numbers) – яка вираховує моду всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
 Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2 
-ДВОМІРНИЙ МАСИВ */
+ДВОМІРНИЙ МАСИВ 
+Якщо мод декілька, виводиться тільки перше значення моди, було б круто, якби у випадку декількох мож, повертався масив з цими значеннями*/
+
+// const getModa = (...numbers) => {
+// 	const result = numbers.filter(number => Number.isInteger(number))
+// 		.reduce((acc, element) => {
+// 			if (!acc.length) {
+// 				acc.push([element, 1]);
+// 			} else {
+// 				const index = acc.findIndex((item) => item[0] === element);
+
+// 				if (index === -1) {
+// 					acc.push([element, 1]);
+// 				} else {
+// 					acc[index][1]++
+// 				}
+// 			}
+
+// 			return acc;
+// 		}, []);
+
+// 	return result.sort((a, b) => b[1] - a[1])[0][0]; //вывести в отсортированном по убыванию двухмерном массиве элемент с индексом [0][0] (тоесть первый)
+// }
+
+// console.log('Функція 2:', getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 const getModa = (...numbers) => {
+	const mods = [];
 	const result = numbers.filter(number => Number.isInteger(number))
 		.reduce((acc, element) => {
 			if (!acc.length) {
@@ -39,11 +64,20 @@ const getModa = (...numbers) => {
 			return acc;
 		}, []);
 
+	result.sort((a, b) => b[1] - a[1]);
+	console.log(result);
+	mods.push(result[0][0]);
 
-	return result.sort((a, b) => b[1] - a[1])[0][0];
+	for (let i = 1; i < result.length; i++) {
+		if (result[0][1] === result[i][1]) {
+			mods.push(result[i][0]);
+		}
+	}
+
+	return mods;
 }
 
-console.log('Функція 2:', getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log('Функція 2:', getModa(6, 2, 55, 11, 55, 2, 55, 77, 57, 87, 55, 2, 56, 3, 2));
 
 
 /*3. Створіть функцію getAverage(...numbers) – яка рахує середнє арифметичне всіх переданих в неї аргументів. НЕЦІЛІ ЧИСЛА ІГНОРУЮТЬСЯ
@@ -63,13 +97,13 @@ console.log('Функція 3:', getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87,
 const getMedian = (...numbers) => {
 	const sortedNumbers = numbers.filter(number => Number.isInteger(number))
 		.sort((a, b) => a - b);
-	const number = numbers.length / 2;
+	const middleIndex = numbers.length / 2;
 
 	if (numbers.length % 2 === 0) {
-		return (sortedNumbers[number - 1] + sortedNumbers[number]) / 2;
+		return (sortedNumbers[middleIndex - 1] + sortedNumbers[middleIndex]) / 2;
 	}
 
-	return sortedNumbers[Math.floor(number)];
+	return sortedNumbers[Math.floor(middleIndex)];
 }
 
 console.log('Функція 4:', getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
@@ -169,9 +203,7 @@ let generateCombinations = (word) => {
 			return word;
 		}
 	}
-
-
-	let combinationsArray = [];
+	const combinationsArray = [];
 
 	for (let i = 0; i < word.length; i++) {
 		let char = word[i];
@@ -179,8 +211,7 @@ let generateCombinations = (word) => {
 		if (word.indexOf(char) != i) {
 			continue;
 		}
-
-		let remainingChars = word.slice(0, i) + word.slice(i + 1, word.length);
+		const remainingChars = word.slice(0, i) + word.slice(i + 1, word.length);
 
 		for (let combination of generateCombinations(remainingChars)) {
 			combinationsArray.push(char + combination);

@@ -26,6 +26,7 @@ const students = [{
 	}
 }];
 
+
 /*1. Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів для конкретного студента.
 Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл */
 
@@ -76,7 +77,7 @@ const getStudentInfo = (student) => {
 console.log('Функція 3:', getStudentInfo(students[0]));
 
 
-//4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
+// 4. Ствроіть функцію getStudentsNames(students) --> ["Anton", "Tanya, "Victor"] – яка повертає імена студентів у алфавітному порядку.
 
 const getStudentsNames = (students) => students.map(item => item.name).sort();
 
