@@ -43,7 +43,7 @@ const getMySalary = function () {
 
 	return {
 		salary: +salary.toFixed(2),
-		taxes: this.tax,
+		taxes: +(this.tax * salary).toFixed(2),
 		profit: +(salary - this.tax * salary).toFixed(2),
 	};
 };
