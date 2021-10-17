@@ -39,14 +39,17 @@ console.log('Функція 3:', getTotalTaxes.call(ukraine));
 profit = salary - taxes; */
 
 const getMySalary = function () {
-	const salary = Math.random() * (2000 - 1500) + 1500;
-
-	return {
-		salary: +salary.toFixed(2),
-		taxes: +(this.tax * salary).toFixed(2),
-		profit: +(salary - this.tax * salary).toFixed(2),
-	};
+	setInterval(() => {
+		const minSalary = 1500;
+		const maxSalary = 2000;
+		const salary = Math.random() * (maxSalary - minSalary) + minSalary;
+		const result = {
+			salary: +salary.toFixed(2),
+			taxes: +(this.tax * salary).toFixed(2),
+			profit: +(salary - this.tax * salary).toFixed(2),
+		};
+		console.log('Функція 4 кожні 10 секунд:', result);
+	}, 10000);
 };
 
 console.log('Функція 4:', getMySalary.call(ukraine));
-setInterval(() => console.log('Функція 4 кожні 10 секунд:', getMySalary.call(ukraine)), 10000);
