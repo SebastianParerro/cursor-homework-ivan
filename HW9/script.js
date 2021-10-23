@@ -35,9 +35,9 @@ class Student {
 
 	set setMark(mark) {//????
 		if (this.isDismiss) {
-			return;
+			return null;
 		}
-		this.marks.push(mark);
+		this.marks.push(mark); s
 	}
 
 	getAverageMark() {
