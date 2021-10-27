@@ -3,9 +3,9 @@
 // Зробіть 25 квадратів розміру 50х50 пікселів кожен, зафарбовані у випадковий колір. Квадрати мають розташовуватись по 5 в ряд.
 // Щоб квадрати з'явились на сторінці, необхідно викликати функцію generateBlocks();
 
-const field = document.createElement('div');
-field.className = 'field';
-document.body.append(field);
+const blocksContainer = document.createElement('div');
+blocksContainer.className = 'blocksContainer';
+document.body.append(blocksContainer);
 
 const generateBlocks = () => {
 	const squareSize = 50;
@@ -18,7 +18,7 @@ const generateBlocks = () => {
 		square.style.left = `${left * squareSize}px`;
 		square.style.top = `${top * squareSize}px`;
 		square.style.background = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
-		field.append(square);
+		blocksContainer.append(square);
 	}
 }
 

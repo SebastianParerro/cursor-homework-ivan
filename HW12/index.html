@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Fortepiano</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="keys">
+		<div data-key="65" class="key">
+			<kbd>A</kbd>
+			<span class="sound">До</span>
+		</div>
+		<div data-key="83" class="key">
+			<kbd>S</kbd>
+			<span class="sound">Ре</span>
+		</div>
+		<div data-key="68" class="key">
+			<kbd>D</kbd>
+			<span class="sound">Ми</span>
+		</div>
+		<div data-key="70" class="key">
+			<kbd>F</kbd>
+			<span class="sound">Фа</span>
+		</div>
+		<div data-key="71" class="key">
+			<kbd>G</kbd>
+			<span class="sound">Соль</span>
+		</div>
+		<div data-key="72" class="key">
+			<kbd>H</kbd>
+			<span class="sound">Ля</span>
+		</div>
+		<div data-key="74" class="key">
+			<kbd>J</kbd>
+			<span class="sound">Си</span>
+		</div>
+	</div>
+
+	<audio data-key="65" src="./sounds/C.wav"></audio>
+	<audio data-key="83" src="./sounds/D.wav"></audio>
+	<audio data-key="68" src="./sounds/E.wav"></audio>
+	<audio data-key="70" src="./sounds/F.wav"></audio>
+	<audio data-key="71" src="./sounds/G.wav"></audio>
+	<audio data-key="72" src="./sounds/A.wav"></audio>
+	<audio data-key="74" src="./sounds/B.wav"></audio>
+
+	<script src="script.js"></script>
+
+</body>
+
+</html>
