@@ -16,7 +16,7 @@ function getRandomChinese(length) {
 		while (i < length) {
 			setTimeout(() => {
 				const sign = Date.now() % 100000;
-			  const symbol = String.fromCharCode(sign);
+				const symbol = String.fromCharCode(sign);
 				str.push(symbol)
 
 				if (str.length === length) {
@@ -30,5 +30,5 @@ function getRandomChinese(length) {
 };
 
 getRandomChinese(4).then((result) => {
-	console.log(result);
+	console.log(result.join(''));
 });
