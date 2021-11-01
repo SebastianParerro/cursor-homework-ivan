@@ -33,4 +33,4 @@ getRandomChinese(4).then((result) => {
 	console.log(result.join(''));
 });
 
-//перевірка 2
+//проба
