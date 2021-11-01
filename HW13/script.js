@@ -32,5 +32,3 @@ function getRandomChinese(length) {
 getRandomChinese(4).then((result) => {
 	console.log(result.join(''));
 });
-
-//
