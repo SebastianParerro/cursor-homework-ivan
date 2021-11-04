@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<title>HW14</title>
+</head>
+
+<body>
+	<button id="recive">Отримати інформацію</button>
+	<button id="wookieeBtn">wookiee</button>
+	<p>
+		Пошук за номером фільму: <input type="numberOfFilm" id="input" size="2">
+		<button onclick="search()">Пошук</button>
+	</p>
+	<h1>Список планет, які були у ЗОРЯНИХ ВІЙНАХ:</h1>
+	<h2>Page: <span id="page"></span></h2>
+	<button id="next">next</button>
+	<ul id="ul"></ul>
+	<h2 class="hidden" id="peopleHeader">Персонажі епізоду ЗОРЯНИХ ВІЙН</h2>
+	<div class="content">
+		<div id="list"></div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
