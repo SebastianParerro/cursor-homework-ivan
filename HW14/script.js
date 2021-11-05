@@ -33,7 +33,6 @@ const photo = {
 	"https://swapi.dev/api/people/26/": "https://mikescollection.files.wordpress.com/2012/01/lobot2.jpg",
 };
 
-// ?format=wookiee
 const getPeoples = () => {
 	peopleHeader.classList.remove("hidden");
 	list.innerHTML = "loading...";
@@ -95,21 +94,21 @@ const getPeoplesWookiee = () => {
 	peopleHeader.classList.remove("hidden");
 	list.innerHTML = "loading...";
 	axios
-		.get(`${baseUrl}/films/${film}?format=wookiee`)
+		.get(`${baseUrl}/films/${film}`)
 		.then((response) => {
 			list.innerHTML = "";
 			response.data.characters.forEach(
 				(url) => {
 					axios
-						.get(url)
+						.get(`${url}?format=wookiee`)
 						.then((response) => {
 							const item = response.data;
 							const listElem = `
 							<div class="people">
 								<img src="${photo[url]}" class="photo" alt="альтернативный текст">
-									<h3>${item.name}</h3>
-									<p>Дата народження: ${item.birth_year}</p>
-									<p>Стать: ${item.gender === 'male' ? "&#9794;" : item.gender === 'female' ? "&#9792;" : "&#9898;"}
+									<h3>${item.whrascwo}</h3>
+									<p>Дата народження: ${item.rhahrcaoac_roworarc}</p>
+									<p>Стать: ${item.rrwowhwaworc === 'scraanwo' ? "&#9794;" : item.rrwowhwaworc === 'wwwoscraanwo' ? "&#9792;" : "&#9898;"}
 									</p>
 							</div>
 							`
@@ -130,8 +129,7 @@ const getPlanetsWookiee = () => {
 	axios
 		.get(`${baseUrl}/planets?page=${currentPage}&limit=${limit}&format=wookiee`)
 		.then((response) => {
-			console.log(response.data);
-			const planets = response.data["rcwochuanaoc"].map(
+			const planets = response.data.rcwochuanaoc.map(
 				(item) => {
 					return `<li>${item.whrascwo}</li>`;
 				}
@@ -172,6 +170,7 @@ if (!wookiee) {
 }
 
 nextBtn.onclick = () => {
+	peopleHeader.classList.add("hidden");
 	if (nextPage === null) return;
 	currentPage += 1;
 

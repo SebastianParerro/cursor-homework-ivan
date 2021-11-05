@@ -4,6 +4,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-style: italic;
 	font-weight: 300;
+	background-image: url(https://st2.depositphotos.com/3252131/7017/v/600/depositphotos_70178563-stock-illustration-no-drugs-smoking-and-alcohol.jpg);
 }
 
 .content {
@@ -23,6 +24,7 @@ body {
 	margin: 10px;
 	padding: 10px;
 	border: 1px solid #eee;
+	background: white;
 }
 
 .numberOfFilm {
@@ -48,4 +50,9 @@ body {
 
 .hidden {
 	display: none;
+}
+
+#ul {
+	background: black;
+	color: white;
 }
