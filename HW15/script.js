@@ -38,7 +38,7 @@ function* newFontGenerator(fontSize) {
 	let result = yield fontSize;
 	while (true) {
 		if (result === 'up') {
-			fontSize+= 2;
+			fontSize += 2;
 			result = yield fontSize
 		} else if (result === 'down') {
 			fontSize -= 2;
