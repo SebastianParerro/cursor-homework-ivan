@@ -40,7 +40,7 @@ function* newFontGenerator(fontSize) {
 		if (result === 'up') {
 			fontSize+= 2;
 			result = yield fontSize
-		} else if (res === 'down') {
+		} else if (result === 'down') {
 			fontSize -= 2;
 			result = yield fontSize
 		} else result = yield fontSize;
