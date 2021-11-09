@@ -33,3 +33,24 @@ console.log(idGenerator.next().value);
 // fontGenerator.next("down").value -> 14
 // fontGenerator.next("down").value -> 12
 // fontGenerator.next().value -> 12
+
+function* newFontGenerator(fontSize) {
+	let result = yield fontSize;
+	while (true) {
+		if (result === 'up') {
+			fontSize+= 2;
+			result = yield fontSize
+		} else if (res === 'down') {
+			fontSize -= 2;
+			result = yield fontSize
+		} else result = yield fontSize;
+	}
+}
+const fontGenerator = newFontGenerator(14);
+console.log(fontGenerator.next().value);
+console.log(fontGenerator.next("up").value);
+console.log(fontGenerator.next("up").value);
+console.log(fontGenerator.next().value);
+console.log(fontGenerator.next("down").value);
+console.log(fontGenerator.next("down").value);
+console.log(fontGenerator.next().value);
