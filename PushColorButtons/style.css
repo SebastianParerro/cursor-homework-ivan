@@ -1,0 +1,45 @@
+.button {
+	height: 150px;
+	width: 150px;
+	margin: 10px;
+}
+
+.menu {
+	border: 1px solid black;
+	padding: 10px;
+	position: absolute;
+	background-color: white;
+}
+
+.size {
+	height: 20px;
+	width: 20px;
+}
+
+.red {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.green {
+	background-color: green;
+}
+
+.cyan {
+	background-color: cyan;
+}
+
+.blue {
+	background-color: blue;
+}
+
+.purple {
+	background-color: purple;
+}
