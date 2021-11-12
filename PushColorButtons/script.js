@@ -1,9 +1,7 @@
 'use strict';
 
 const showMenu = (buttonNumber) => {
-	const menus = document.querySelectorAll(`.menu`);
-	menus.forEach((item) => item.remove());// щоб видалити попередне меню, що з'явилося
-
+	deleteMenu();
 	const menu = document.createElement('div');
 	menu.className = "menu";
 	menu.innerHTML = `
@@ -26,4 +24,10 @@ const showMenu = (buttonNumber) => {
 const setColor = (number, color) => {
 	const button = document.getElementsByClassName(`btn${number}`)[0];
 	button.style.backgroundColor = color;
+	deleteMenu();
+};
+
+const deleteMenu = () => {
+	const menus = document.querySelectorAll(`.menu`);
+	menus.forEach((item) => item.remove());// щоб видалити попередне меню, що з'явилося
 };
